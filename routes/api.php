@@ -27,3 +27,5 @@ Route::post('create-todo',[TodoController::class,'create']);
 Route::get('edit',[TodoController::class,'edit']);
 Route::post('update',[TodoController::class,'update']);
 Route::post('delete',[TodoController::class,'destroy']);
+
+// secondss
