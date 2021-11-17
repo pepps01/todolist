@@ -3,10 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Todo;
+use App\Models\User;
 
-
-class TodoSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +14,6 @@ class TodoSeeder extends Seeder
      */
     public function run()
     {
-        Todo::factory(30)->create();
+        User::factory(30)->create();
     }
 }
- 

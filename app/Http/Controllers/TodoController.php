@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+
 
 class TodoController extends Controller
 {
@@ -12,9 +14,10 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json("200",200);
+        // $user = Cache::get('user:', 'default');
+        return response()->json("World");
     }
     
     /**
@@ -22,11 +25,20 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return response()->json("200",200);
+        if($request->isMethod("post")){
+            return response()->json('post');
+        }else{
+            return response ()->json('get');
+        }
     }
     
+
+     public function guage()
+    {
+        return redirect()->json("Welcome", 201);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -47,7 +59,7 @@ class TodoController extends Controller
     public function show(Todo $todo, $id)
     {
         $identity = $id;
-        return response()->json($identity, 200);
+        return response()->json($identity);
     }
     
     /**
@@ -84,3 +96,6 @@ class TodoController extends Controller
         return response()->json('Destroy Todo ', 200);
     }
 }
+
+
+// Using service model

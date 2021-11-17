@@ -36,9 +36,9 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->configureRateLimiting();
-
+// play with the middleware
         $this->routes(function () {
-            Route::prefix('api')
+            Route::prefix('api/')
                 ->middleware('api')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
@@ -60,4 +60,8 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
         });
     }
+
+    protected $except = [
+        'token/'
+    ];
 }

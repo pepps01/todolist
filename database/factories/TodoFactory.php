@@ -14,7 +14,9 @@ class TodoFactory extends Factory
     public function definition()
     {
         return [
-            //
+                'taskname'=> $this->faker->text(30),
+                'status'=> $this->faker->text()
         ];
     }
-}
+
+ }
